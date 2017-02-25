@@ -1,0 +1,42 @@
+Documents
+    Serves as a repository for arbitrary textual data, media etc.
+    Each user has their own document repository where they can upload anything withing allowed quotas.
+    Document owner can choose to publish it to other selected users or publicly.
+
+Accommodation
+    Students can find available dormitory accommodation as well as information about school-owned canteens.
+    Dormitory fees are paid using electronic account accessible and manageable from this agenda.
+
+Noticeboard
+    Globally visible space where notices can be posted by the school administration, IS administration or other authorized personnel.
+    Notices have assigned priority and target group, only members of the target group can see the notice.
+
+Discussion Group
+    All registered users can join discussion here with both read and write access.
+    Any registered member can start and moderate new topical group.
+    Each course has associated discussion group moderated by teachers of the course.
+
+Teachers Notebook
+    There is one notebook per course taught, one user can teach any number of courses simultaneously.
+    List of students enrolled in the course is available, students can be graded and group emails can be sent to all students of the course.
+    Teacher can choose to be notified of any posts in the discussion group associated with the course.
+    Teacher can upload materials for the course and set visibility of the uploaded materials.
+
+Student Agenda
+    Student can access materials for enrolled courses and browse catalogue of all available courses.
+    Student can display summary information about their studies and statistical comparison to other students.
+    Study related events, such as new awarded course points or seminar attendance info, are aggregated in the agenda.
+    Student can choose to monitor any discussion group, new events from the group will pop up as events in the agenda.
+
+Supervisor Agenda
+    Course supervisors can use this agenda to upload materials for the course.
+    Submitted homework can be viewed by the supervisors for grading, feedback for students can be posted here.
+
+Publications
+    Active members can list their publications such as journal entries and books.
+    Any visitor to the site can browse and search for publications submitted by the users.
+
+E-Learning
+    Active members can prepare E-courses using provided tools and templates.
+    Courses can be labeled and categorized based on difficulty level, topic, estimated completion time etc.
+    Any visitor to the site can start any E-course, however progress saving is only offered to registered users.
