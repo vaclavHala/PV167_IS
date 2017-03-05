@@ -1,0 +1,54 @@
+M
+Party – user, student group, faculty, MU. Typy – mail, 
+party – user group, faculty, mu. Typ – specifikovana novinka na noticeboard.
+- vyukova jednotka – tyzdenna, blokova, jednorazovy seminar, sportovy kurz
+
+Accountability – vztah user a predmet. Typy – ucitel, cviciaci, garant, student, skusajuci
+- pracovny vztah aj medzi fakultami
+- vztah k univerzite – absolvent, ucitel, student…
+
+V
+Vztah 'studuje' pomoci Accountability mezi Party uzivatel systemu a Party vyukova jednotka.
+Uzivatel, zejmena student, ale muze jit o libovolnou jinou osobu, se ucastni vyuky dane jednotky.
+Jednotka muze byt obycejny kurz, vyuka blokoveho typu, sportovni kurz etc.
+Soucasti Accountability je evidence studijnich vysledku pri studiu dane jednotky,
+zpusob ukonceni, upresneni seminarni skupiny a podobne.
+
+Vztah 'zamestnanec' pomoci Accountability mezi Party uzivatel systemu a Party pracoviste.
+Tento vztah vznika mezi osobou v zamestnaneckem pomeru k nekteremu univerzitnimu pracovisti a pracovistem kde je zamestnan.
+Pracovistem muze byt fakulta, katedra, vyzkumne centrum, dekanat, laborator atp.
+Vztah eviduje typ zamestnaneckeho pomeru, vysi financniho ohodnoceni, evidenci naroku na dovolenou a jeji cerpani,
+pridana prava pro uzivatele v ramci ISu vyplivajici z tohoto zamestnaneckoeho pomeru a tak dale.
+
+Ulozeni uzivatelskych Dokumentu v adresarove strukture pomoci Organizacni Hierarchie.
+Kazdy uzivatel ma vlatni domovsky adrear do nejz muze umistovat libovolne dokumenty a media
+v rozsahu povolenem kvotami pro tohoto uzivatele.
+Pro lepsi organizaci ma uzivatel moznost sve dokumenty hierarchycky usporadavat do adresaru.
+
+Univerzita je hierarchicky rozdelena na fakulty, katedry, vedecke pracoviste a dalsi podpurne organy.
+Informacni system umoznuje tuto Hierarchii prochazet a systematicky prohledavat.
+Studenti mohou napriklad hledat predmety nabizene katedrou nebo jejim libovolnym podrizenym pracovistem.
+V hierarchii pracovist jsou dale dohledatelne seznamy profesoru, ucitelu a dalsich pracovniku pusobicich v danem pracovisti.
+Spravce kazdeho pracoviste ma moznost spravovat primo dane pracoviste a dale rekurzivne vsechna pracoviste tomuto podrizena.
+Pro administrativni potreby Informacni System o kazdem pracovisti v hierarchii
+vede informace o financnich prostredcich tohoto pracoviste, zamestnaneckych pomerech atp.
+Tyto informace je mozne zpristupnit agregovane pro libovolna pracoviste tomuto pracovisti podrizena.
+
+V obchodnim centru univerzity je pro kazdou polozku jeji cena vedena pomoci Quantity obsahujici menu v niz je dana zakladni cena polozky.
+Zahranicni studenti maji tedy moznost za polozky platit krome ceskych korun v eurech, dolarech, nebo jine rozsirene svetove mene.
+
+Krome zakladnich informaci jako je jmeno, tituly nebo univerzitni email
+je moznost o kazdem uzivateli uchovavat seznam dodatecnych atributu.
+Tyto atributy jsou ukladany jako Quantity coz umoznuje uchovavat spolu se samotnymi atributy jejich semantiku.
+Prikladem jsou dodatecne kontakty na osobu, kancelar, polozky zivotopisu, zajmy a dalsi informace v profilu.
+
+- student a vyukova jednotka, externi studenti
+
+hierarchia – adresarovy system, skola – fakulty – katedry, centra, dekanat (v prohlidke pracovist) 
+accountability - zamestnanci – accountability type – interny, externy, profesor, student
+- ako vidi hierarchiu student a ako ju vidi zamestnanec?
+
+quantity – shopping center – mena, jednontky- balenie, lekcie, kusy, 
+- pripadne konverzie medzi menami, MU ucet v eurach?
+- evidencia dodatocne info o useroch s pridanou semantickou znackou
+
