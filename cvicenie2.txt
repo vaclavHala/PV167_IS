@@ -1,6 +1,0 @@
-Vzor party
-Keïe mail je moné posla konkrétnej osobe, skupine osôb alebo organizaènej jednotke (príklad: študent pošle mail na študijné oddelenie, prednášajúci alebo cvièiaci pošle hromadnı mail všetkım študentom predmetu alebo semináru), pomocou party môeme generalizova príjemcov pošty. Pomocou party môeme generalizova aj príjemcov noviniek na nástenke, kde príjemcom je istá podmnoina uívate¾ov systému, napr. celá MU, konkrétna fakulta...
-Ïalej je moné generalizova tıdennú vıuku, blokovú vıuku, jednorázovı seminár, športovı kurz ap. ako vıukovú jednotku. Generalizova je moné aj študenta, zamestnanca, neaktívneho uívate¾a ako uívate¾a systému (prípadne vytvori party aktívnych uívate¾ov a party neaktívnych uívate¾ov). 
-
-Vzor Accountability
-Existuje vzah medzi predmetom (alebo party vıuková jednotka) a party, ktorá zodpovedá za jeho vıuku. V tejto party môe by jednotlivec (uèite¾, cvièiaci, garant, skúšajúci ap.) alebo organizaèná jednotka (fakulta).
