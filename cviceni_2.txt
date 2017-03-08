@@ -1,13 +1,18 @@
-M
-Party – user, student group, faculty, MU. Typy – mail, 
-party – user group, faculty, mu. Typ – specifikovana novinka na noticeboard.
-- vyukova jednotka – tyzdenna, blokova, jednorazovy seminar, sportovy kurz
+Week 2 – Analysis Patterns
 
-Accountability – vztah user a predmet. Typy – ucitel, cviciaci, garant, student, skusajuci
-- pracovny vztah aj medzi fakultami
-- vztah k univerzite – absolvent, ucitel, student…
+422551 Vaclav Hala
+422450 Michaela Bocanova
 
-V
+Mailovy klient pracuje s Party 'prijemce'. Muze se jednat o jednotlive osoby (jedna emailova adresa),
+rucne definovane skupiny adres ktere si uzivatel sam vytvori (napr. pracovni skupina projektu),
+vsichni studenti daneho predmetu atd. To ktere skupiny jsou uzivateli ISu dostupne je dano jeho opravnenim,
+napr. jen ucitel predmetu muze posilat hromadny email studentum tohoto predmetu. Podobny system funguje
+pro vyber skupiny uzivatelum kterym bude viditelna / zvyraznena na domovske strance novinka Noticeboardu.
+
+S kazdym kurzem jsou asociovany osoby podilejici se na jeho vyuce. Tento vztah je modelovan pomoci vzoru
+Accountability, osoba muze byt prednasejici predmetu, cvicici, zkousejici, garant...
+Accountability zaroven obsahuje dodatecna opravneni v ramci ISu ktera osobe z tohoto vztahu plynou.
+
 Vztah 'studuje' pomoci Accountability mezi Party uzivatel systemu a Party vyukova jednotka.
 Uzivatel, zejmena student, ale muze jit o libovolnou jinou osobu, se ucastni vyuky dane jednotky.
 Jednotka muze byt obycejny kurz, vyuka blokoveho typu, sportovni kurz etc.
@@ -41,14 +46,3 @@ Krome zakladnich informaci jako je jmeno, tituly nebo univerzitni email
 je moznost o kazdem uzivateli uchovavat seznam dodatecnych atributu.
 Tyto atributy jsou ukladany jako Quantity coz umoznuje uchovavat spolu se samotnymi atributy jejich semantiku.
 Prikladem jsou dodatecne kontakty na osobu, kancelar, polozky zivotopisu, zajmy a dalsi informace v profilu.
-
-- student a vyukova jednotka, externi studenti
-
-hierarchia – adresarovy system, skola – fakulty – katedry, centra, dekanat (v prohlidke pracovist) 
-accountability - zamestnanci – accountability type – interny, externy, profesor, student
-- ako vidi hierarchiu student a ako ju vidi zamestnanec?
-
-quantity – shopping center – mena, jednontky- balenie, lekcie, kusy, 
-- pripadne konverzie medzi menami, MU ucet v eurach?
-- evidencia dodatocne info o useroch s pridanou semantickou znackou
-
