@@ -3,15 +3,10 @@ Week 2 – Analysis Patterns
 422551 Vaclav Hala
 422450 Michaela Bocanova
 
-Mailovy klient pracuje s Party 'prijemce'. Muze se jednat o jednotlive osoby (jedna emailova adresa),
-rucne definovane skupiny adres ktere si uzivatel sam vytvori (napr. pracovni skupina projektu),
-vsichni studenti daneho predmetu atd. To ktere skupiny jsou uzivateli ISu dostupne je dano jeho opravnenim,
-napr. jen ucitel predmetu muze posilat hromadny email studentum tohoto predmetu. Podobny system funguje
-pro vyber skupiny uzivatelum kterym bude viditelna / zvyraznena na domovske strance novinka Noticeboardu.
+Keďže e-mail je možné poslať konkrétnej osobe (jedna e-mailová adresa), skupine osôb alebo organizačnej jednotke (príklad: študent pošle mail na študijné oddelenie, prednášajúci alebo cvičiaci pošle hromadný e-mail všetkým študentom predmetu alebo semináru, ručne definované skupiny adries, napr. pracovná skupina projektu), aplikovaním vzoru party môžeme generalizovať príjemcov pošty ako „príjemca“. To, ktoré skupiny osôb sú užívateľovi systému dostupné, je dané jeho oprávnením (napr. prednášajúci a hromadný e-mail). Pomocou party môžeme generalizovať aj príjemcov noviniek na nástenke (viditeľné/zvýraznené novinky na Noticeboard na domovskej stránke), kde príjemcom je istá podmnožina užívateľov systému, napr. celá MU, konkrétna fakulta...
+Ďalej je možné generalizovať týždennú výuku, blokovú výuku, jednorázový seminár, športový kurz ap. ako výukovú jednotku. Generalizovať je možné aj študenta, zamestnanca, neaktívneho užívateľa ako užívateľa systému (prípadne vytvoriť party aktívnych užívateľov a party neaktívnych užívateľov). 
 
-S kazdym kurzem jsou asociovany osoby podilejici se na jeho vyuce. Tento vztah je modelovan pomoci vzoru
-Accountability, osoba muze byt prednasejici predmetu, cvicici, zkousejici, garant...
-Accountability zaroven obsahuje dodatecna opravneni v ramci ISu ktera osobe z tohoto vztahu plynou.
+Existuje vzťah „výuka“ (aplikovaním vzoru Accountability) medzi predmetom (alebo party výuková jednotka) a party, ktorá zodpovedá za jeho výuku. V tejto party môže byť jednotlivec (prednášajúci predmetu, cvičiaci, garant, skúšajúci ap.) alebo organizačná jednotka (fakulta, dodavatelské pracovište). Za Time Period sa môže označiť semester (podzim alebo jar). Z tohto vzťahu plynú pre vyučujúceho dodatočné oprávnenia v rámci systému.
 
 Vztah 'studuje' pomoci Accountability mezi Party uzivatel systemu a Party vyukova jednotka.
 Uzivatel, zejmena student, ale muze jit o libovolnou jinou osobu, se ucastni vyuky dane jednotky.
