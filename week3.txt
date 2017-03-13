@@ -1,0 +1,38 @@
+Technicke vybaveni jednotlivych pracovist je vedeno v ISu.
+Kazde pracoviste ma Account evidujici 'aktivni' vybaveni, 'vyrazene' a 'pozadovane'.
+Aktivni je to vybaveni kterym pracoviste prave disponuje a je fyzicky pritomno na pracovisti.
+Vyrazene je vsechno vybaveni ktere v minulosti bylo aktivni ale v soucasnosti uz neni dostupne/pouzitelne.
+Pozadovane vybaveni ma navic priznak priority potrebnosti,
+z tohoto Accountu je vybirano vybaveni ktere bude pro pracoviste nakoupeno kdyz jsou k dispozici prostredky.
+Presun vybaveni mezi Accounty je veden pomoci vzoru Transaction.
+Kazdy presun z 'aktivni' do 'vyrazene' musi mit uveden duvod vyrazeni,
+kazdy presun z pozadovane do aktivni ma veden udaj o porizovaci cene vybaveni.
+
+Financni rozpocet jednotlivych pracovist je veden pomoci vzoru Account.
+Kazde ucetni obdobi se z tohoto Accountu pomoci Transaction presouvaji fondy do
+jednotlivych Accountu vyjadrujicich na co pracoviste sve prostredky vynaklada.
+Prikladem techto Accountu je publikacni cinnost, cesty a ucast na vedeckych konferencich,
+technicke vybaveni pracoviste, platy a stipendia pro zamestnance a cleny pracoviste.
+
+Dostupne licence k software vybaveni jsou vedeny pomoci vzoru Account.
+Kazda licence je v jednom z dvou stavu: 'aktivni', 'neaktivni'.
+Pomoci vzoru Transaction je evidovano nakupovani a vyprseni licenci.
+Kazdy nakup je Transaction presouvajici licenci do stavu 'aktivni',
+navic obsahuje udaj o cene licence a dobe po kterou je platna.
+Vyprseni licence vede k jejimu presunuti do kategorie 'neaktivni'.
+
+Vsichni studenti univerzity jsou vedeni pomoci vzoru Account.
+Kazda fakulta ma Account pro studenty kteri jsou prave studujici,
+pro studenty kteri studium uspesne ukoncili, pro studenty kteri studium prerusili nebo pozastavili.
+Studenti se presouvaji mezi Accounty v ramci jedne fakulty kdyz studium dokonci nebo ukonci.
+Mohou se take presouvat mezi jednotlivymi fakultami pri prechodu na jiny obor.
+Vsechny popsane presuny jsou evidovany pomoci vzoru Transaction.
+U kazdeho je veden datum kdy ke zmene doslo, v pripade potreby jsou ukladany
+informace oduvodnujici probehnuti presunu studenta, napriklad zadost o zmenu studijniho oboru.
+
+Ucitel predmetu ma moznost ke kazdemu studentu sveho kurzu si v ramci ISu vest poznamky.
+Pro poznamky je pouzit vzor Observation, typ poznamky je modelovan jako PhenomenonType.
+V systemu jsou preddefinovany dva zakladni typy poznamek, konkretne absence (Category - pritomnost/ nepritomnost),
+a bodove ohodnoceni (Measurement - celociselna hodnota).
+Ucitel si muze pro svuj predmet dodefinovat libovolny novy typ poznamky (PhenomenonType),
+napriklad pozdni odevzdani ukolu (Measurement - pocet dni spozdeni, nebo Category - vcas/pozde).
