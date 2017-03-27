@@ -1,0 +1,53 @@
+pouziti v ISu
+
+adapter
+
+externi mailove servery
+dokumentovy server
+
+composite
+
+rozvrh?
+uzivatelske skupiny, prava
+mailove skupiny
++ composite, planovani vseho mozneho, 
+    listy obsahuji ruzne strategie, zkusi se vsechny
+    a composite root vybere ten vysledek ktery vychazi nejlepe
+struktura kurzu (seminarni skupiny)
+
+
+Observer
+
+Nove studijni udalosti v ramci jednoho uctu jsou Subject.
+E.g. zmena v poznamkovem bloku, nove rozhodnuti v uradovne etc.
+Udalosti lze sledovat (registrovat Observery) a v reakci se ukazuji notifikace, posilaji informacni maily...
+
+Stranka Zivot na MUNI zobrazujici infinite scroll s udalostmi z cele univerzity pouziva vzor Observer.
+Webovy klient je Observer a dostava AJAXove zpravy vzdy kdyz se ma ve feedu objevi novy prispevek.
+Subject je server ISu ktery posila nove udalosti vsem aktivnim prohlizecum kteri se u neho zaregistrovali k odberu.
+
+Kazde diskusni forum je Subject, emituje udalosti vzdy kdyz je hodnocen existujici nebo pridan novy prispevek.
+Uzivatel ktery si u fora zvolil moznost sledovani pridal svuj ucet k Observerum fora.
+Jsou dva typy Observeru, jeden reaguje na nove prispevky, druhy na hodnoceni.
+Oba se daji parametrizovat tak, aby pracovali se vsemi udalostmi, nebo jen s udalostmi tykajicimi se uzivatele
+ktery je zaregistroval (reakce na uzivateluv prispevek, hodnoceni jeho prispevku...).
+
+Strategy
+
+Plat kazdeho zamestnance je pocitan pomoci vzoru Strategy.
+Podle typu smlouvy jsou pouzity ruzne strategie, napriklad prace na plny uvazek, prace na zkraceny uvazek, dohoda o provedeni prace...
+Vyse ohodnoceni je dale ovlivnena dosazenym vzdelanim nebo jinou relevantni kvalifikaci zamestnance.
+Toto muze byt implementovano bud jako multiplikativni konstanta pokud jde opravdu jen o operaci nasobeni a to vzdy stejnym nasobitelem,
+nebo take Strategy pokud jsou pravidla pro prepocitavani platu na zaklade kvalifikace zamestnance slozitejsi.
+
+Pro planovani rozlozeni hodin do mistnosti pri sestavovani noveho rozvrhu jsou pouzity vzory Strategy a Composite.
+V systemu je nekolik planovacich algoritmu pouzivajich ruzne heuristiky a pristupy, kazdy z nich je jednou implementaci Strategy.
+Vsechny tyto algoritmy lze pouzit soucasne pomoci specialni CompositePlanningStrategy.
+Tato trida implementuje stejne rozhrani pro Strategy jako jednotlive konkretni algoritmy, zaroven je to Composite.
+Obsahuje pole konkretnich algoritmu (Leaves) a hodnotici funkci porovnavajici vysledky spocitane jednotlivymi algoritmy.
+Vypocet CompositePlanningStrategy probiha tak, ze nad zadanym vstupem spusti vsechny dostupne algoritmy, objektivni funcki
+porovna jejich vysledky a vrati nejlepsi nebo nekolik nejlepsich vysledku.
+
+Pro zobrazeni rozvrhu lze pouzit jednu z mnoha dostupnych Strategy, IS nabizi vystupni formaty pdf, xml, html, plaintext a dalsi.
+Kazdy z techto formatu je Strategy ktera na vstupu dostane interni reprezentaci rozvrhu
+a jejim vystupem je tyz rozvrh formatovany pozadovanym zpusobem.
