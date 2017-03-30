@@ -1,15 +1,21 @@
 pouziti v ISu
 
-adapter
+Adapter
 
-externi mailove servery
-dokumentovy server
+Medzi existujúce rozhrania, ktoré je treba prispôsobiť, aby mohli správne komunikovať s IS, patria Google Mail, Google Contacts, Google Drive, Google Calendar a pod. 
+Jedným typom adaptéra by bol teda mailový adaptér, kde adaptee je, napr. Google Mail, Microsoft Exchange... 
+Tento adaptér by poskytoval služby Google Mail (prijímanie pošty doručenej na univerzitný účet) cez pôvodné mailové rozhranie IS (target).
+Ďalším typom adaptéra môže byť úložiskový adaptér, kde adaptee je, napr. Google Drive, ownCloud, OneDrive… 
+Adaptér by poskytoval služby cez pôvodné úložiskové rozhranie (target je DocumentServer). 
+Užívateľ by teda mal byť schopný prostredníctvom dokumentového serveru ISu pristupovať k službám externého úložiska (vytváranie a zdieľanie dokumentov, synchronizácia).
 
-composite
 
-rozvrh?
-uzivatelske skupiny, prava
-mailove skupiny
+Composite
+
+Typickým príkladom je dokumentová hierarchia, kde component je dokumentový server, leaf je konkrétny dokument a composite sú priečinky, podpriečinky…
+Možné je takto štrukturalizovať aj užívateľské a mailové skupiny, kde listom je, napr. študent a composite sú seminárna skupina, kurz, študijný obor, fakulta, celá MU.
+Ďalším príkladom je rozvrhovanie (miestnosť, čas), kde listom by bola vyučovacia hodina, composite deň, týždeň, semester.
+
 + composite, planovani vseho mozneho, 
     listy obsahuji ruzne strategie, zkusi se vsechny
     a composite root vybere ten vysledek ktery vychazi nejlepe
