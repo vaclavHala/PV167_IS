@@ -1,0 +1,21 @@
+rozvrh semestru - struktura na dni, vyukove hodiny, sposob, akym sa vytvori, zobrazenie rozvrhu pre ucebnu, studenta...
++ zapis studenta do konkretneho predmetu
+6 navrhov
+
+adapter - externa knihovna pre planovanie rozvrhu, prevod do roznych formatov, 
+composite - koren predmet/sem. skupina, list konkretny datum a miesto vyuky (plan: kazdy tyzden/jeden: nemoc),
+flyweight - pre vykreslenie: parametry ramcekov
+
+dekorator/strategie - vytvaranie rozvrhu, zobrazenie, vykreslenie
+strategy - format tabulky, tiskovy vystup: 
+dekorator - rozsirenia: blokova vyuka, nastavenia
+strategy - planovanie v minulom cviku (algoritmy)
++ vyuzitie obeserver
+
+builder - vytvorit vyukovu hodinu + kontrola vramci dna, rozne builder -> adapter, konvertor formatu
+planovanie jednorazovej prednasky/tyzdennej vyuky
+abstract factory -
+observer - subject: ucebna a cas v rozvrhu, + zoznam seminarnych skupin - obsadenost, observer: webovy klient
+iterator - 
+
+visitor - ?
