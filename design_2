@@ -19,3 +19,55 @@ observer - subject: ucebna a cas v rozvrhu, + zoznam seminarnych skupin - obsade
 iterator - 
 
 visitor - ?
+
+----------------------------
+
+Pro planovani jsou v systemu dva hlavni interfacy:
+TimeSchedulable - nastaveni casu udalosti v ramci dne, start a delka v hodinach a minutach
+DateSchedulable - nastaveni kalendarniho data kdy udalost probehne, dan je den a mesic
+
+TimeSchedulable ma dve implementace:
+SimpleTimeSchedulable - jedna udalost ktere muze byt nastaven cas
+CompositeGroupTimeSchedulable - seznam udalosti kterym muze byt davkove nastaven cas,
+    napriklad je tedy mozne mit instanci pro vsechny vyukove hodiny jedne seminarni skupiny / prednasky,
+    diky tomu je mozne naraz upravit cas udalosti v prvnim, druhem, tretim... tydnu.
+
+DateSchedulable ma dve implementace:
+SimpleDateSchedulable - jedna udalost ktere muze byt nastaven datum konani
+CompositeOffsetTimeSchedulable - seznam udalosti s pevne danym rozestupem,
+    nastaveni datumu se propaguje na vsechny udalosti tak, ze 1. udalosti je nastaven presne dany datum,
+    druhe dany datum + 1x offset, k treti je pridan offset 2x atd.
+    Diky tomu je mozne posouvat seminarni skupiny / prednasky v ramci tydne, zmena prvni je
+    propagovana na vsechny dalsi skupiny / prednasky ve zbytku semestru.
+
+Tento model zaroven umoznuje zmenit datum / cas jen jedne udalosti, napriklad pokud je prednasejici
+nemocny a vyjimecne se jedna prednaska posouva o dva dny.
+
+Pro pridani dodatecnych informaci do rozvrhu se pouziva vzor Decorator.
+Vykresleni zakladniho rozvrhu pro studenta (kody predmetu, cas) muze byt rozsireno napriklad pomoci
+TutorDecorator ktery ke kazde prednasce / skupine prida kolonku s jmenem vyucujiciho,
+RoomDecorator ktery prida informaci o mistnosti v ktere vyuka probiha
+nebo BlockCoursesDecorator ktery pri vypisu pro konkretni tydny do prislusnych dni a casu prida policko blokove vyuky.
+
+Existuje mnoho zpusobu vykresleni/vypisu kalendare, kazdy z techto zpusobu je jedna Strategy.
+Tato Strategy pracuje s interni reprezentaci rozvrhu, ktera je vytvorena za pouziti Decoratoru popsanych vyse.
+Pro graficke vykresleni primo ve web prohlizeci existuje StaticHtmlTimetableFormat ktery vykresluje pouze
+vyuku probihajici v pravidelnych intervalech, dny jsou oznaceny jen jako pondeli, utery... nikoli konkretnimi daty.
+Dale je k dispozici CalendarHtmlTimetableFormat, jehoz vystup je taktez graficky, rozvrh je ale vykreslen
+jednotlive pro vybrane tydny a obsahuje i jednorazove udalosti jako je blokova vyuka.
+Rozvrh je take mozno vypsat do textoveho souboru ktery si uzivatel muze stahnout pomoci FileTimetableFormat.
+Tato Strategy interne pouziva dalsi Strategy pro jednotlive podporovane formaty jako je PDF, Postscript, XML...
+Napriklad pro stazeni rozvrh ve formatu PDF bude pouzit FileTimetableFormat interne pouzivajici PdfFormat.
+
+# copy paste z 1
+Pro planovani rozlozeni hodin do mistnosti pri sestavovani noveho rozvrhu jsou pouzity vzory Strategy a Composite.
+V systemu je nekolik planovacich algoritmu pouzivajich ruzne heuristiky a pristupy, kazdy z nich je jednou implementaci Strategy.
+Vsechny tyto algoritmy lze pouzit soucasne pomoci specialni CompositePlanningStrategy.
+Tato trida implementuje stejne rozhrani pro Strategy jako jednotlive konkretni algoritmy, zaroven je to Composite.
+Obsahuje pole konkretnich algoritmu (Leaves) a hodnotici funkci porovnavajici vysledky spocitane jednotlivymi algoritmy.
+Vypocet CompositePlanningStrategy probiha tak, ze nad zadanym vstupem spusti vsechny dostupne algoritmy, objektivni funcki
+porovna jejich vysledky a vrati nejlepsi nebo nekolik nejlepsich vysledku.
+
+Jednotlive Strategy sestavujici rozvrh pouzivaji TimetableBuilder.
+Tento umi manipulovat s jednotlivymi Time a DateSchedulable, validuje napriklad ze se zadne dve naplanovane udalosti neprekryvaji.
+Jednotlive Strategy tedy jen vytvari a preskladavaji udalosti pomoci API Builderu a jsou upozorneny pokud nastane nevalidni stav.
