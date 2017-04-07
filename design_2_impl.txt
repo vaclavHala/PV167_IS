@@ -1,0 +1,84 @@
+Semester
+cost()	// pocita se rekurzivne z cost() weeku
+#weeks[]
+
+Curriculum  // vyukove jednotky (WeeklyCourse etc.) obsahuji kolekci Eventu
+
+Week
+cost()	// pocita se rekurzivne z cost() dny
+#days[]
+
+Day
+cost()
+#timeslots[]	// pocita se rekurzivne z cost() slotu
+
+Timeslot
+cost()	// pocita se z cost() udalosti
+#events[]
+
+Builder
+// kazda metoda do udalosti nastavi popis toho jak je zrovna naplanovana
+// e.g. kazdy tyden, od 18:00 etc.
+ctor(fromWeek, toWeek)
+makeWeekly(event, day)		// DateSchedulable(offset 7)
+makeBiWeekly(event, day, even/odd)	// DateSchedulable(offset 14)
+makeOneTime(event, day)	
+setStartTime(event, start) 	// TimeSchedulable
+	// kdyz je event#duration > 1 kontroluje ze je dalsi slot volny
+	// zaroven do nasledujicich slotu zapise tento event
+build() :: Semester
+
+HolidayInitializer
+fillBuilder(builder) // prida statni svatky do buildera
+
+DateSchedulable
+#start
+#offset
+#events
+setDay(day)
+
+SimpleDateSchedulable extends DateSchedulable
+OffsetDateSchedulable extends DateSchedulable
+
+TimeSchedulable
+#start
+#events
+setTime(start)
+
+SimpleTimeSchedulable extends TimeSchedulable
+CompositeTimeSchedulable extends TimeSchedulable
+
+Event
+cost()	// spocita se na zaklade skutecneho naplanovani a preferenceListu
+#duration
+#preferenceList // muze obsahovat cas, pozadavek na vybaveni ucebny...
+compatibleWith(otherEvent) // both ways check
+fitsIn(timeslot) //e.g. pasuje prednaska do dane mistnosti (pocet studentu)
+
+
+Seminar extends Event, CompositeTimeSchedulable, OffsetDateSchedulable
+Lecture extends Event, CompositeTimeSchedulable, OffsetDateSchedulable
+Holiday extends Event, TimeSchedulable, SimpleDateSchedulable
+start(){all day}
+compatible(whatever){nope}
+fitsIn(whatever){yes}
+
+TimetablePlanner
+#availableStrategies
+plan(curriculum, preferences)
+  // preferences jsou agregovany z preferenci ucitelu, dostupneho vybaveni mistnosti,
+  // predpokladaneho poctu studentu ...
+
+Strategy
+#builder
+plan(events[])
+
+
+----------------------------------------
+TimetablePlanner:
+pro kazdou strategy
+	vyrobi se novy builder
+	builder se naplni svatky
+	strategy pouzije builder pro naplanovani rozvrhu
+na vysledne Semester se zavola cost() a zjisti se kvalita naplanovani
+vybere se Semester s nejlepsi cost a ten je pouzit jako vysledek
