@@ -1,0 +1,8 @@
+vyhnut sa cyklickym zavislostiam (dat do zvlast baliku)
+interface pre balik + dependency, nie vazby medzi triedami vo vnutri
+moznost adaptera medzi balikmi
++ package diagram
++ jednoduchy komponentovy diagram vychadza z balikoveho diagramu
+do odovzdavarny a poslat informacny mail, deadline nie je
+
+v novom IS_MU-analysis.vpp je navrhnute, ako by mohlo asi vyzerat  riesenie, potom sa mi ozvi na skype
